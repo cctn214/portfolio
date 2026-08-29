@@ -1,0 +1,44 @@
+:root {
+  /* Fonts */
+  --font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
+
+  /* Colors - Base Backgrounds */
+  --bg-primary: #070614;
+  --bg-card: rgba(15, 15, 30, 0.55);
+  --bg-card-hover: rgba(20, 20, 45, 0.7);
+  
+  /* Text Colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dark: #0f172a;
+
+  /* Accents & Neon Glows */
+  --accent-purple: #c084fc;       /* Spring Boot & Core */
+  --accent-purple-glow: rgba(192, 132, 252, 0.25);
+  --accent-cyan: #22d3ee;         /* Database & APIs */
+  --accent-cyan-glow: rgba(34, 211, 238, 0.25);
+  --accent-emerald: #34d399;      /* Success & Uptime */
+  --accent-emerald-glow: rgba(52, 211, 153, 0.25);
+  --accent-rose: #fb7185;         /* Warnings & Errors */
+  --accent-rose-glow: rgba(251, 113, 133, 0.25);
+
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(17, 16, 36, 0.6);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.03);
+  --glass-bg-active: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-border-focus: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(24px);
+  --glass-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.5);
+  --glass-inset-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* Layout Constants */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+}

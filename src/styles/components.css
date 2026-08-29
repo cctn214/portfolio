@@ -1,0 +1,267 @@
+@import './variables.css';
+
+/* Glassmorphism Containers */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--glass-shadow);
+  box-shadow: var(--glass-shadow), var(--glass-inset-shadow);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--glass-shadow), 
+              var(--glass-inset-shadow), 
+              0 0 30px rgba(192, 132, 252, 0.05);
+}
+
+.glass-card-subtle {
+  background: var(--glass-bg-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--border-radius-md);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02);
+}
+
+/* Glass Buttons */
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  outline: none;
+  backdrop-filter: blur(8px);
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.glass-btn:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.glass-btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
+.glass-btn-primary:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.45);
+}
+
+.glass-btn-purple {
+  background: rgba(192, 132, 252, 0.15);
+  border-color: rgba(192, 132, 252, 0.3);
+  color: #e9d5ff;
+}
+
+.glass-btn-purple:hover {
+  background: rgba(192, 132, 252, 0.3);
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 15px var(--accent-purple-glow);
+}
+
+.glass-btn-cyan {
+  background: rgba(34, 211, 238, 0.15);
+  border-color: rgba(34, 211, 238, 0.3);
+  color: #cffafe;
+}
+
+.glass-btn-cyan:hover {
+  background: rgba(34, 211, 238, 0.3);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+}
+
+/* Glass inputs & form controls */
+.glass-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-sm);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(4px);
+}
+
+.glass-input:focus {
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.15);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.glass-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Badges */
+.glass-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-badge-purple {
+  background: rgba(192, 132, 252, 0.1);
+  color: #d8b4fe;
+  border-color: rgba(192, 132, 252, 0.2);
+}
+
+.glass-badge-cyan {
+  background: rgba(34, 211, 238, 0.1);
+  color: #67e8f9;
+  border-color: rgba(34, 211, 238, 0.2);
+}
+
+.glass-badge-emerald {
+  background: rgba(52, 211, 153, 0.1);
+  color: #6ee7b7;
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+/* Server LEDs & status indicators */
+.led-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.led-indicator::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  animation: flash-led 2s infinite ease-in-out;
+}
+
+.led-green {
+  background-color: #10b981;
+}
+.led-green::after {
+  background-color: rgba(16, 185, 129, 0.4);
+}
+
+.led-orange {
+  background-color: #f59e0b;
+}
+.led-orange::after {
+  background-color: rgba(245, 158, 11, 0.4);
+}
+
+.led-red {
+  background-color: #ef4444;
+}
+.led-red::after {
+  background-color: rgba(239, 68, 68, 0.4);
+}
+
+/* Simulated CLI Terminal Window */
+.terminal-window {
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--glass-border);
+  background: rgba(7, 6, 18, 0.85);
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.terminal-header {
+  height: 36px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background-color: #f43f5e; }
+.terminal-dot.yellow { background-color: #eab308; }
+.terminal-dot.green { background-color: #22c55e; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.terminal-content {
+  flex-grow: 1;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+  overflow-y: auto;
+  position: relative;
+  min-height: 250px;
+}
+
+/* Console Logger Levels */
+.log-line {
+  margin-bottom: 0.25rem;
+  white-space: pre-wrap;
+}
+
+.log-time {
+  color: var(--text-muted);
+  margin-right: 0.5rem;
+}
+
+.log-level-info { color: #34d399; }
+.log-level-debug { color: #38bdf8; }
+.log-level-warn { color: #fbbf24; }
+.log-level-error { color: #f87171; }
+
+.log-message {
+  color: #f1f5f9;
+}
