@@ -55,7 +55,7 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
         }} className="hero-left-col">
 
           {/* Main Title Block */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginTop: '2.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }} className="hero-left-title-block">
             <span style={{
               fontSize: '1.1rem',
               color: 'var(--accent-purple)',
@@ -64,8 +64,7 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
             }}>
               Hello, I'm
             </span>
-            <h1 style={{
-              fontSize: '3.6rem',
+            <h1 className="hero-title" style={{
               fontWeight: '800',
               lineHeight: '1.1',
               color: '#ffffff',
@@ -78,10 +77,8 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
           {/* Lower Left: Vertical Social Stack */}
           <div style={{
             display: 'flex',
-            flexDirection: 'column',
             gap: '0.75rem',
-            alignItems: 'flex-start',
-            marginTop: '2rem'
+            alignItems: 'flex-start'
           }} className="vertical-socials">
             <a
               href="https://linkedin.com/in/soebala"
@@ -121,19 +118,15 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
           justifyContent: 'center',
           alignItems: 'flex-end',
           position: 'relative',
-          height: '600px',
           width: '100%',
           gridRow: '1' // Forced to center in mobile grid
         }} className="hero-center-col">
 
           {/* Soft circular radial glow backing - aligned and amplified */}
-          <div style={{
+          <div className="hero-radial-glow" style={{
             position: 'absolute',
-            top: '63%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: '520px',
-            height: '520px',
             borderRadius: '50%',
             background: 'radial-gradient(circle, rgba(192, 132, 252, 0.45) 0%, rgba(34, 211, 238, 0.15) 50%, transparent 75%)',
             filter: 'blur(35px)',
@@ -144,48 +137,42 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
           {/* Floating portrait cutout */}
           <div style={{
             position: 'relative',
-            width: '480px',
-            height: '660px',
             overflow: 'visible',
             display: 'flex',
             alignItems: 'flex-end',
             justifyContent: 'center'
           }} className="hero-portrait-frame">
-
+            
             {/* 1. Original Photo (Clipped to a circle in background) */}
-            <img
-              src={avatarOriginal}
-              alt="Soe Bala Win Background"
+            <img 
+              src={avatarOriginal} 
+              alt="Soe Bala Win Background" 
+              className="hero-original-img"
               style={{
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
                 objectFit: 'contain',
-                clipPath: 'circle(220px at 50% 63%)',
                 zIndex: 1
               }}
             />
 
-            {/* 2. White Circle Border Frame */}
             {/* 2. White Circle Border Frame - glowing neon ring */}
-            <div style={{
+            <div className="hero-bg-circle" style={{
               position: 'absolute',
-              width: '440px',
-              height: '440px',
               borderRadius: '50%',
               border: '6px solid rgba(255, 255, 255, 0.95)',
               boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(192, 132, 252, 0.45), 0 0 50px rgba(34, 211, 238, 0.25)',
               left: '50%',
-              top: '63%',
               transform: 'translate(-50%, -50%)',
               zIndex: 2,
               pointerEvents: 'none'
             }} />
 
             {/* 3. Transparent Photo (Foreground, unclipped, overlapping the border) */}
-            <img
-              src={avatarTransparent}
-              alt="Soe Bala Win Foreground"
+            <img 
+              src={avatarTransparent} 
+              alt="Soe Bala Win Foreground" 
               style={{
                 position: 'absolute',
                 width: '100%',
@@ -210,7 +197,7 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
         }} className="hero-right-col">
 
           {/* Skill Title Block */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginTop: '2.5rem', textAlign: 'left' }} className="right-title-block">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', textAlign: 'left' }} className="right-title-block">
             <span style={{
               fontSize: '1.1rem',
               color: 'var(--accent-purple)',
@@ -219,8 +206,7 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
             }}>
               Creative
             </span>
-            <h2 style={{
-              fontSize: '3.3rem',
+            <h2 className="hero-right-title" style={{
               fontWeight: '800',
               lineHeight: '1.1',
               color: '#ffffff',
@@ -472,14 +458,95 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
         </div>
       </section>
 
-      {/* Grid queries to support desktop split layout */}
+      {/* Responsive CSS styles */}
       <style>{`
+        /* Mobile Layout styles (< 900px) */
+        .hero-title {
+          font-size: 2.8rem;
+        }
+        .hero-right-title {
+          font-size: 2.5rem;
+        }
+        .hero-left-title-block {
+          margin-top: 1rem;
+        }
+        .right-title-block {
+          margin-top: 1.25rem;
+        }
+        .vertical-socials {
+          flex-direction: row !important;
+          margin-top: 1rem;
+        }
+        .resume-download-btn {
+          justify-content: flex-start !important;
+          margin-top: 1.25rem;
+        }
+        .hero-center-col {
+          height: 380px;
+        }
+        .hero-radial-glow {
+          width: 320px;
+          height: 320px;
+          top: 63%;
+        }
+        .hero-portrait-frame {
+          width: 260px;
+          height: 350px;
+        }
+        .hero-original-img {
+          clip-path: circle(120px at 50% 63%);
+        }
+        .hero-bg-circle {
+          width: 240px;
+          height: 240px;
+          top: 63%;
+        }
+
+        /* Desktop Layout styles (>= 900px) */
         @media (min-width: 900px) {
           .hero-layered-section {
             grid-template-columns: 1fr 1.2fr 1fr !important;
           }
+          .hero-title {
+            font-size: 3.6rem;
+          }
+          .hero-right-title {
+            font-size: 3.3rem;
+          }
+          .hero-left-title-block {
+            margin-top: 2.5rem;
+          }
+          .right-title-block {
+            margin-top: 2.5rem;
+          }
+          .vertical-socials {
+            flex-direction: column !important;
+            margin-top: 2rem;
+          }
+          .resume-download-btn {
+            justify-content: flex-end !important;
+            margin-top: 2rem;
+          }
           .hero-center-col {
-            grid-row: auto !important; /* Let grid place it in the middle naturally */
+            height: 600px;
+            grid-row: auto !important;
+          }
+          .hero-radial-glow {
+            width: 520px;
+            height: 520px;
+            top: 63%;
+          }
+          .hero-portrait-frame {
+            width: 480px;
+            height: 660px;
+          }
+          .hero-original-img {
+            clip-path: circle(220px at 50% 63%);
+          }
+          .hero-bg-circle {
+            width: 440px;
+            height: 440px;
+            top: 63%;
           }
           .about-split-row {
             grid-template-columns: 1.5fr 1fr !important;
