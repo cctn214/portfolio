@@ -1,6 +1,5 @@
 import React from 'react';
 import { Mail, Cpu, Database, Layout, GraduationCap, Code2, Users, Flame, Heart, FileText } from 'lucide-react';
-import avatarOriginal from '../assets/avatar.jpg';
 import avatarTransparent from '../assets/avatar_transparent.png';
 import resumePdf from '../assets/resume.pdf';
 
@@ -135,53 +134,15 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
           }} />
 
           {/* Floating portrait cutout */}
-          <div style={{
-            position: 'relative',
-            overflow: 'visible',
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'center'
-          }} className="hero-portrait-frame">
-            
-            {/* 1. Original Photo (Clipped to a circle in background) */}
-            <img 
-              src={avatarOriginal} 
-              alt="Soe Bala Win Background" 
-              className="hero-original-img"
-              style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
-                zIndex: 1
-              }}
-            />
+          <div className="hero-portrait-frame">
+            {/* 1. White Circle Border Frame - glowing neon ring with Studio Backdrop */}
+            <div className="hero-bg-circle" />
 
-            {/* 2. White Circle Border Frame - glowing neon ring */}
-            <div className="hero-bg-circle" style={{
-              position: 'absolute',
-              borderRadius: '50%',
-              border: '6px solid rgba(255, 255, 255, 0.95)',
-              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(192, 132, 252, 0.45), 0 0 50px rgba(34, 211, 238, 0.25)',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              zIndex: 2,
-              pointerEvents: 'none'
-            }} />
-
-            {/* 3. Transparent Photo (Foreground, unclipped, overlapping the border) */}
+            {/* 2. Transparent Photo (Foreground, unclipped, overlapping the border) */}
             <img 
               src={avatarTransparent} 
-              alt="Soe Bala Win Foreground" 
-              style={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5))',
-                zIndex: 3,
-                pointerEvents: 'none'
-              }}
+              alt="Soe Bala Win" 
+              className="hero-foreground-img"
             />
           </div>
         </div>
@@ -460,6 +421,34 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
 
       {/* Responsive CSS styles */}
       <style>{`
+        .hero-portrait-frame {
+          position: relative;
+          overflow: visible;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+        }
+        .hero-bg-circle {
+          position: absolute;
+          border-radius: 50%;
+          border: 6px solid rgba(255, 255, 255, 0.95);
+          background: radial-gradient(circle at 62% 46%, #adc4d8 0%, #8ca4b9 35%, #596f83 75%, #384b5c 100%);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(192, 132, 252, 0.35), 0 0 50px rgba(34, 211, 238, 0.2);
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          pointer-events: none;
+        }
+        .hero-foreground-img {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+          z-index: 3;
+          pointer-events: none;
+        }
+
         /* Mobile Layout styles (< 900px) */
         .hero-title {
           font-size: 2.8rem;
@@ -487,19 +476,16 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
         .hero-radial-glow {
           width: 320px;
           height: 320px;
-          top: 63%;
+          top: 48%;
         }
         .hero-portrait-frame {
-          width: 260px;
-          height: 350px;
-        }
-        .hero-original-img {
-          clip-path: circle(120px at 50% 63%);
+          width: 290px;
+          height: 360px;
         }
         .hero-bg-circle {
-          width: 240px;
-          height: 240px;
-          top: 63%;
+          width: 250px;
+          height: 250px;
+          top: 48%;
         }
 
         /* Desktop Layout styles (>= 900px) */
@@ -528,25 +514,22 @@ export const HomeTab: React.FC<HomeTabProps> = ({ setActiveTab }) => {
             margin-top: 2rem;
           }
           .hero-center-col {
-            height: 600px;
+            height: 560px;
             grid-row: auto !important;
           }
           .hero-radial-glow {
-            width: 520px;
-            height: 520px;
-            top: 63%;
+            width: 480px;
+            height: 480px;
+            top: 48%;
           }
           .hero-portrait-frame {
-            width: 480px;
-            height: 660px;
-          }
-          .hero-original-img {
-            clip-path: circle(220px at 50% 63%);
+            width: 450px;
+            height: 540px;
           }
           .hero-bg-circle {
-            width: 440px;
-            height: 440px;
-            top: 63%;
+            width: 380px;
+            height: 380px;
+            top: 48%;
           }
           .about-split-row {
             grid-template-columns: 1.5fr 1fr !important;
