@@ -16,10 +16,7 @@ export const LayoutContainer: React.FC<LayoutContainerProps> = ({ children }) =>
         maxWidth: '1200px',
         margin: '0 auto',
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: 'calc(100vh - 4rem)'
+        flexDirection: 'column'
       }}>
         {children}
       </div>

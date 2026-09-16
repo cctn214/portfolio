@@ -22,7 +22,6 @@ export const GlassFrame: React.FC<GlassFrameProps> = ({ activeTab, setActiveTab,
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
-      minHeight: '80vh',
       overflow: 'hidden',
       position: 'relative'
     }}>
@@ -177,7 +176,7 @@ export const GlassFrame: React.FC<GlassFrameProps> = ({ activeTab, setActiveTab,
       {/* Frame content container */}
       <main style={{
         flexGrow: 1,
-        padding: '2.5rem',
+        padding: '1.75rem 2rem',
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
